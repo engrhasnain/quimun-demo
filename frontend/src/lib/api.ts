@@ -39,7 +39,19 @@ async function get<T>(path: string, revalidate = 10): Promise<T> {
       ? ({ cache: "no-store" } as const)
       : ({ next: { revalidate } } as const);
   try {
-    res = await fetch(url, { ...cache, headers: { accept: "application/json" } });
+    res = await fetch(url, {
+      ...cache,
+      headers: { accept: "application/json" },
+      // Fail fast rather than hang.
+      //
+      // Without this, an unreachable API makes the production BUILD fail: Next
+      // prerenders these pages, the fetch never returns, and it aborts each page
+      // after 60s x 3 attempts. That bites exactly when you deploy the frontend
+      // before the API exists - the most likely order of operations. With a
+      // timeout the page prerenders as the "API unreachable" screen and
+      // revalidates into real content as soon as the API answers.
+      signal: AbortSignal.timeout(8000),
+    });
   } catch (cause) {
     throw new ApiError(
       `Cannot reach the API at ${BASE}. Is the FastAPI server running?`,

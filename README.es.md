@@ -105,10 +105,15 @@ cada proyecto elija su propio Root Directory.
 Primero el API; después setear `NEXT_PUBLIC_API_URL` en el proyecto del frontend
 con la URL del API, y `ALLOWED_ORIGINS` en el API con la URL del frontend.
 
-**Sí, Vercel corre FastAPI.** Su runtime de Python sirve cualquier módulo bajo
-`api/` que exponga un `app` ASGI, así que no hace falta ningún shim:
-`backend/api/index.py` son tres líneas. Las restricciones reales son el tamaño y
-el sistema de archivos, y ambas están resueltas:
+**Sí, Vercel corre FastAPI** — tiene un preset propio. El preset busca un `app`
+ASGI a nivel de módulo en una ubicación convencional, así que `backend/main.py`
+reexporta la app real desde `app/main.py` y no hace falta configurar routing.
+
+Dos cosas que te van a morder si te desvías: **no** dejes además un directorio
+`api/` (Vercel pasa a tratar `/api/*` como carpeta de funciones y tapa las rutas
+de FastAPI, devolviendo 404 en todos los endpoints), y no escribas `rewrites` a
+mano: el preset ya los maneja. Las restricciones reales son el tamaño y el
+sistema de archivos, y ambas están resueltas:
 
 ```
 dependencias python  30,7 MB

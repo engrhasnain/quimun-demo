@@ -107,10 +107,15 @@ each project pick its own Root Directory.
 Deploy the API first, then set `NEXT_PUBLIC_API_URL` on the frontend project to
 the API project's URL. Set `ALLOWED_ORIGINS` on the API to the frontend's URL.
 
-**Yes, Vercel runs FastAPI.** Its Python runtime serves any module under `api/`
-that exposes an ASGI `app`, so no shim is needed — `backend/api/index.py` is a
-three-line import. The real constraints are size and the filesystem, and both
-are handled:
+**Yes, Vercel runs FastAPI** — it has a first-class FastAPI preset. The preset
+looks for a module-level ASGI `app` in a conventional place, so `backend/main.py`
+re-exports the real app from `app/main.py` and no routing config is needed.
+
+Two things that will bite you if you deviate: do **not** also keep an `api/`
+directory (Vercel then treats `/api/*` as a functions folder and shadows the
+FastAPI routes, 404-ing every endpoint), and do not hand-write `rewrites` for
+this - the preset handles them. The real constraints are size and the
+filesystem, and both are handled:
 
 ```
 python deps          30.7 MB
