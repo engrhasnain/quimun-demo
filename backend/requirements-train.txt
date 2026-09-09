@@ -1,0 +1,5 @@
+# Development-only. The deployed API does NOT import these — the trainer exports
+# plain weights to data/model.json, which is scored by pure Python at runtime.
+-r requirements.txt
+scikit-learn==1.6.0
+numpy==2.2.1

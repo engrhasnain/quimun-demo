@@ -1,0 +1,361 @@
+{
+  "version": "1.0.0",
+  "algorithm": "logistic_regression (L2, class_weight=balanced)",
+  "trained_at": "2026-09-09",
+  "target": "Uso degradado en 30 días: intensidad bajo el 80% de la mediana de su grupo de tamaño",
+  "target_en": "Degraded usage in 30 days: intensity below 80% of the residence's own size-band median",
+  "horizon_days": 30,
+  "drop_threshold": 0.8,
+  "intercept": -0.9154014794133077,
+  "features": [
+    {
+      "key": "intensity_pct",
+      "mean": 0.5601432880844643,
+      "scale": 0.2752982463926543,
+      "coef": -1.8002555688342774
+    },
+    {
+      "key": "trend_7_28",
+      "mean": -0.007537411537784256,
+      "scale": 0.09500416085146525,
+      "coef": -0.6399053862213735
+    },
+    {
+      "key": "breadth_ratio",
+      "mean": 0.9031209150326803,
+      "scale": 0.14633254142291915,
+      "coef": -0.17563298914714312
+    },
+    {
+      "key": "seat_coverage",
+      "mean": 0.8473166294489815,
+      "scale": 0.1616521569652519,
+      "coef": 0.06574393120263732
+    },
+    {
+      "key": "top_user_share",
+      "mean": 0.5281585345852362,
+      "scale": 0.14941621057990653,
+      "coef": 0.19242208493355553
+    },
+    {
+      "key": "active_days_ratio",
+      "mean": 0.9996848739495796,
+      "scale": 0.003339939725963127,
+      "coef": -0.13733934682578428
+    },
+    {
+      "key": "daily_module_rate",
+      "mean": 0.9622257236227758,
+      "scale": 0.05093593559382505,
+      "coef": -0.29559464605244484
+    },
+    {
+      "key": "clinical_gap_ratio",
+      "mean": 0.0616596638655459,
+      "scale": 0.06908520625963725,
+      "coef": -0.07924261995813943
+    },
+    {
+      "key": "abandoned_modules",
+      "mean": 0.03823529411764706,
+      "scale": 0.20172983177714715,
+      "coef": 0.19138455406725652
+    },
+    {
+      "key": "tickets_30",
+      "mean": 0.14555375559692474,
+      "scale": 0.2961459339774548,
+      "coef": 0.09267167281815214
+    },
+    {
+      "key": "days_since_contact",
+      "mean": 0.9485294117647053,
+      "scale": 0.0957783428809114,
+      "coef": -0.07931695621177272
+    },
+    {
+      "key": "tenure_log",
+      "mean": 0.8194248777740214,
+      "scale": 0.04291474548929255,
+      "coef": -0.007034582866388868
+    }
+  ],
+  "thresholds": {
+    "high": 0.7,
+    "medium": 0.35,
+    "precision_threshold": 0.49
+  },
+  "metrics": {
+    "auc": 0.9663,
+    "average_precision": 0.9516,
+    "accuracy": 0.8934,
+    "precision": 0.8026,
+    "recall": 0.9313,
+    "f1": 0.8622,
+    "brier": 0.0822,
+    "base_rate": 0.3579,
+    "n_train": 1020,
+    "n_test": 366
+  },
+  "confusion": {
+    "tp": 122,
+    "fp": 30,
+    "fn": 9,
+    "tn": 205
+  },
+  "roc": [
+    {
+      "fpr": 0.0,
+      "tpr": 0.0
+    },
+    {
+      "fpr": 0.0,
+      "tpr": 0.0076
+    },
+    {
+      "fpr": 0.0,
+      "tpr": 0.6489
+    },
+    {
+      "fpr": 0.0085,
+      "tpr": 0.6489
+    },
+    {
+      "fpr": 0.0085,
+      "tpr": 0.6718
+    },
+    {
+      "fpr": 0.0128,
+      "tpr": 0.6718
+    },
+    {
+      "fpr": 0.0128,
+      "tpr": 0.6794
+    },
+    {
+      "fpr": 0.017,
+      "tpr": 0.6794
+    },
+    {
+      "fpr": 0.017,
+      "tpr": 0.687
+    },
+    {
+      "fpr": 0.0213,
+      "tpr": 0.687
+    },
+    {
+      "fpr": 0.0213,
+      "tpr": 0.7099
+    },
+    {
+      "fpr": 0.0255,
+      "tpr": 0.7099
+    },
+    {
+      "fpr": 0.0255,
+      "tpr": 0.7634
+    },
+    {
+      "fpr": 0.0298,
+      "tpr": 0.7634
+    },
+    {
+      "fpr": 0.0298,
+      "tpr": 0.7863
+    },
+    {
+      "fpr": 0.034,
+      "tpr": 0.7863
+    },
+    {
+      "fpr": 0.034,
+      "tpr": 0.7939
+    },
+    {
+      "fpr": 0.0383,
+      "tpr": 0.7939
+    },
+    {
+      "fpr": 0.0383,
+      "tpr": 0.8015
+    },
+    {
+      "fpr": 0.0426,
+      "tpr": 0.8015
+    },
+    {
+      "fpr": 0.0426,
+      "tpr": 0.8092
+    },
+    {
+      "fpr": 0.0511,
+      "tpr": 0.8092
+    },
+    {
+      "fpr": 0.0511,
+      "tpr": 0.8168
+    },
+    {
+      "fpr": 0.0553,
+      "tpr": 0.8168
+    },
+    {
+      "fpr": 0.0553,
+      "tpr": 0.8397
+    },
+    {
+      "fpr": 0.0681,
+      "tpr": 0.8397
+    },
+    {
+      "fpr": 0.0681,
+      "tpr": 0.8473
+    },
+    {
+      "fpr": 0.0851,
+      "tpr": 0.8473
+    },
+    {
+      "fpr": 0.0851,
+      "tpr": 0.8855
+    },
+    {
+      "fpr": 0.0979,
+      "tpr": 0.8855
+    },
+    {
+      "fpr": 0.0979,
+      "tpr": 0.9237
+    },
+    {
+      "fpr": 0.1064,
+      "tpr": 0.9237
+    },
+    {
+      "fpr": 0.1064,
+      "tpr": 0.9313
+    },
+    {
+      "fpr": 0.1404,
+      "tpr": 0.9313
+    },
+    {
+      "fpr": 0.1404,
+      "tpr": 0.9389
+    },
+    {
+      "fpr": 0.1447,
+      "tpr": 0.9389
+    },
+    {
+      "fpr": 0.1447,
+      "tpr": 0.9466
+    },
+    {
+      "fpr": 0.166,
+      "tpr": 0.9466
+    },
+    {
+      "fpr": 0.166,
+      "tpr": 0.9542
+    },
+    {
+      "fpr": 0.1787,
+      "tpr": 0.9542
+    },
+    {
+      "fpr": 0.1787,
+      "tpr": 0.9618
+    },
+    {
+      "fpr": 0.234,
+      "tpr": 0.9618
+    },
+    {
+      "fpr": 0.234,
+      "tpr": 0.9695
+    },
+    {
+      "fpr": 0.2936,
+      "tpr": 0.9695
+    },
+    {
+      "fpr": 0.2936,
+      "tpr": 0.9771
+    },
+    {
+      "fpr": 0.3277,
+      "tpr": 0.9771
+    },
+    {
+      "fpr": 0.3277,
+      "tpr": 0.9847
+    },
+    {
+      "fpr": 0.4766,
+      "tpr": 0.9847
+    },
+    {
+      "fpr": 0.4766,
+      "tpr": 0.9924
+    },
+    {
+      "fpr": 0.6383,
+      "tpr": 0.9924
+    },
+    {
+      "fpr": 0.6383,
+      "tpr": 1.0
+    },
+    {
+      "fpr": 1.0,
+      "tpr": 1.0
+    }
+  ],
+  "calibration": [
+    {
+      "bin": "0.0–0.2",
+      "predicted": 0.0771,
+      "actual": 0.0142,
+      "n": 141
+    },
+    {
+      "bin": "0.2–0.4",
+      "predicted": 0.2919,
+      "actual": 0.0678,
+      "n": 59
+    },
+    {
+      "bin": "0.4–0.6",
+      "predicted": 0.5022,
+      "actual": 0.3103,
+      "n": 29
+    },
+    {
+      "bin": "0.6–0.8",
+      "predicted": 0.7123,
+      "actual": 0.62,
+      "n": 50
+    },
+    {
+      "bin": "0.8–1.0",
+      "predicted": 0.9308,
+      "actual": 0.977,
+      "n": 87
+    }
+  ],
+  "training": {
+    "split": "temporal (70/30 by cutoff date)",
+    "cutoff_stride_days": 7,
+    "train_from": "2026-03-07",
+    "train_to": "2026-06-27",
+    "test_from": "2026-07-04",
+    "test_to": "2026-08-08",
+    "residences": 64,
+    "min_trailing_events": 60,
+    "note": "Entrenado sobre datos de demostración generados. El pipeline es el que se conecta al stream real de Quimun; los coeficientes se recalculan con datos reales.",
+    "note_en": "Trained on generated demo data. The pipeline is what connects to Quimun's real event stream; coefficients are refitted on real data."
+  }
+}

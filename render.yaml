@@ -1,0 +1,13 @@
+# One-click API host. Render reads this file from the repo root.
+# The frontend goes to Vercel and points at this service via NEXT_PUBLIC_API_URL.
+services:
+  - type: web
+    name: quimun-api
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: ALLOWED_ORIGINS
+        sync: false   # set to your Vercel URL, e.g. https://quimun.vercel.app
